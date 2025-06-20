@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApeRectum - The Ultimate Cosmic Crude Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for consistent theming */
+        :root {
+            --primary-black: #000000;
+            --primary-orange: #FF4500;
+            --deep-purple: #1A032E;
+            --secondary-purple: #4A057F;
+            --neon-green: #AFFF00;
+            --neon-yellow: #FFFF00;
+            --light-orange: #FF8C00;
+            --white: #FFFFFF;
+            --light-grey: #CCCCCC;
+            
+            --font-heading: 'Bebas Neue', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 3rem;
+            --spacing-xl: 4rem;
+            
+            --border-radius: 8px;
+            --border-radius-large: 16px;
+        }
+
+        /* Global Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--primary-black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Cosmic Background Canvas */
+        #cosmic-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(45deg, var(--primary-black) 0%, var(--deep-purple) 50%, var(--primary-black) 100%);
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--primary-black);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-orange);
+            border-radius: var(--border-radius);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--light-orange);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .meme-style-heading {
+            font-size: clamp(3rem, 8vw, 8rem);
+            color: var(--primary-orange);
+            text-shadow: 0 0 20px var(--primary-orange), 0 0 40px var(--primary-orange);
+            animation: glow-pulse 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow-pulse {
+            from { 
+                text-shadow: 0 0 20px var(--primary-orange), 0 0 40px var(--primary-orange);
+            }
+            to { 
+                text-shadow: 0 0 30px var(--primary-orange), 0 0 60px var(--primary-orange), 0 0 80px var(--neon-green);
+            }
+        }
+
+        .engaging-subheading {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            color: var(--light-grey);
+            margin-top: var(--spacing-md);
+            animation: fade-in-up 2s ease-out 0.5s both;
+        }
+
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title-with-animation {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: var(--primary-orange);
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+            position: relative;
+            animation: slide-in-left 1s ease-out;
+        }
+
+        @keyframes slide-in-left {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: var(--spacing-md);
+        }
+
+        .hero-logo {
+            width: 200px;
+            height: 200px;
+            margin-bottom: var(--spacing-lg);
+            animation: float 6s ease-in-out infinite;
+            filter: drop-shadow(0 0 30px var(--primary-orange));
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(5deg); }
+            50% { transform: translateY(0px) rotate(0deg); }
+            75% { transform: translateY(-10px) rotate(-5deg); }
+        }
+
+        /* Interactive Button */
+        .cosmic-button {
+            background: linear-gradient(45deg, var(--primary-orange), var(--light-orange));
+            border: none;
+            color: var(--primary-black);
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: var(--border-radius-large);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: var(--spacing-lg);
+        }
+
+        .cosmic-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px var(--primary-orange);
+        }
+
+        .cosmic-button:active {
+            transform: scale(0.95);
+        }
+
+        .cosmic-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--neon-green), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cosmic-button:hover::before {
+            left: 100%;
+        }
+
+        /* Sections */
+        .main-section {
+            padding: var(--spacing-xl) var(--spacing-md);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+
+        .content-card {
+            background: linear-gradient(135deg, var(--deep-purple), var(--secondary-purple));
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-large);
+            border: 2px solid var(--primary-orange);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 69, 0, 0.3);
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--neon-green) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            animation: rotate 20s linear infinite;
+        }
+
+        .content-card:hover::before {
+            opacity: 0.1;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .rounded-image-with-shadow {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            border-radius: var(--border-radius-large);
+            box-shadow: 0 10px 30px rgba(255, 69, 0, 0.5);
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* Tokenomics Section */
+        .tokenomics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        .token-stat {
+            background: var(--deep-purple);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-large);
+            text-align: center;
+            border: 2px solid var(--neon-green);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .token-stat::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-orange), var(--neon-green));
+            animation: shimmer 2s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+        }
+
+        .stat-value {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--primary-orange);
+            display: block;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-label {
+            color: var(--light-grey);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* How to Buy Steps */
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        .step-card {
+            background: linear-gradient(45deg, var(--primary-black), var(--deep-purple));
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-large);
+            border-left: 4px solid var(--primary-orange);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            border-left-width: 8px;
+            transform: translateX(10px);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--primary-orange);
+            color: var(--primary-black);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .step-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--primary-orange);
+            margin-bottom: var(--spacing-sm);
+            margin-top: var(--spacing-sm);
+        }
+
+        /* Social Links */
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-md);
+            background: var(--deep-purple);
+            border: 2px solid var(--primary-orange);
+            border-radius: var(--border-radius-large);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link:hover {
+            background: var(--primary-orange);
+            color: var(--primary-black);
+            transform: scale(1.05);
+        }
+
+        /* Timeline */
+        .timeline-container {
+            position: relative;
+            margin-top: var(--spacing-lg);
+        }
+
+        .timeline-item {
+            background: var(--deep-purple);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-large);
+            margin-bottom: var(--spacing-lg);
+            border-left: 4px solid var(--neon-green);
+            position: relative;
+            animation: slide-in-right 0.6s ease-out;
+        }
+
+        @keyframes slide-in-right {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .timeline-title {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--primary-orange);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .timeline-date {
+            color: var(--neon-green);
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--deep-purple);
+            padding: var(--spacing-lg);
+            text-align: center;
+            border-top: 2px solid var(--primary-orange);
+        }
+
+        .copiable-text {
+            background: var(--primary-black);
+            padding: var(--spacing-sm);
+            border-radius: var(--border-radius);
+            font-family: monospace;
+            font-size: 0.9rem;
+            border: 1px solid var(--primary-orange);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: var(--spacing-sm);
+            display: inline-block;
+        }
+
+        .copiable-text:hover {
+            background: var(--primary-orange);
+            color: var(--primary-black);
+        }
+
+        /* Particle Effects */
+        .particle {
+            position: absolute;
+            background: var(--neon-green);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particle-float 4s ease-out forwards;
+        }
+
+        @keyframes particle-float {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) scale(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: var(--spacing-sm);
+            }
+            
+            .main-section {
+                padding: var(--spacing-lg) var(--spacing-sm);
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+            
+            .tokenomics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .steps-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-logo {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .cosmic-button {
+                font-size: 1.2rem;
+                padding: var(--spacing-sm) var(--spacing-md);
+            }
+            
+            .social-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Cosmic Background Canvas -->
+    <canvas id="cosmic-background" aria-hidden="true"></canvas>
+
+    <!-- Hero Section -->
+    <header class="hero-section" role="banner">
+        <img src="./logo.png" alt="ApeRectum Logo - Bear silhouette representing crude astronomical humor" class="hero-logo">
+        <h1 class="meme-style-heading">Welcome to the World of ApeRectum</h1>
+        <p class="engaging-subheading">Your portal to the most explosive meme-powered cryptocurrency in the cosmic rectum!</p>
+        <button class="cosmic-button" onclick="exploreRectum()" aria-label="Explore ApeRectum further">
+            Enter the Rectum
+        </button>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- About Section -->
+        <section class="main-section" id="about" aria-labelledby="about-title">
+            <h2 class="section-title-with-animation" id="about-title">What is ApeRectum?</h2>
+            <div class="content-grid">
+                <div class="content-card">
+                    <img src="./logo.png" alt="ApeRectum mascot showcasing crude astronomical humor" class="rounded-image-with-shadow">
+                    <p>Welcome to the cosmic gas chamber of the crypto universe! ApeRectum combines the sophistication of celestial bodies with the raw, unfiltered humor of anatomical absurdity. We're not just another meme coin - we're a galactic fart that echoes through the void of Uranus and beyond!</p>
+                </div>
+                <div class="content-card">
+                    <h3 style="color: var(--primary-orange); margin-bottom: var(--spacing-sm); font-family: var(--font-heading);">The Cosmic Rectum Philosophy</h3>
+                    <p>Every astronomical phenomenon has its crude counterpart, and we celebrate the beautiful chaos of cosmic gas clouds, stellar wind, and the explosive energy that emerges from the darkest depths of space. ApeRectum is where sophistication meets the absurd!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tokenomics Section -->
+        <section class="main-section" id="tokenomics" aria-labelledby="tokenomics-title">
+            <h2 class="section-title-with-animation" id="tokenomics-title">Tokenomics</h2>
+            <div class="tokenomics-grid">
+                <div class="token-stat">
+                    <span class="stat-value">1B</span>
+                    <span class="stat-label">Total Supply</span>
+                </div>
+                <div class="token-stat">
+                    <span class="stat-value">50M</span>
+                    <span class="stat-label">Burned in Black Hole</span>
+                </div>
+                <div class="token-stat">
+                    <span class="stat-value">950M</span>
+                    <span class="stat-label">Circulating in Cosmos</span>
+                </div>
+                <div class="token-stat">
+                    <span class="stat-value">0%</span>
+                    <span class="stat-label">Tax on Transactions</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- How to Buy Section -->
+        <section class="main-section" id="how-to-buy" aria-labelledby="how-to-buy-title">
+            <h2 class="section-title-with-animation" id="how-to-buy-title">Join the ApeRectum Community - How to Buy</h2>
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Get a Wallet</h3>
+                    <p>Download a reputable Solana wallet like Phantom or Solflare to store your cosmic gas tokens securely.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Acquire SOL</h3>
+                    <p>Purchase Solana (SOL) from a cryptocurrency exchange to fuel your journey into the rectum of space.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Connect to a DEX</h3>
+                    <p>Connect your wallet to a decentralized exchange like Jupiter or Raydium to access the cosmic marketplace.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Swap SOL for AR</h3>
+                    <p>Use the DEX's swap feature to exchange your SOL for ApeRectum (AR) tokens and join the cosmic gas cloud!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Roadmap Section -->
+        <section class="main-section" id="roadmap" aria-labelledby="roadmap-title">
+            <h2 class="section-title-with-animation" id="roadmap-title">The ApeRectum Journey - Our Roadmap</h2>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <h3 class="timeline-title">Phase 1: The Big Bang Fart</h3>
+                    <div class="timeline-date">Q1 2024</div>
+                    <p>Launch ApeRectum token, establish cosmic community, and release the first wave of crude astronomical memes that will echo through the universe.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="timeline-title">Phase 2: Uranus Exploration</h3>
+                    <div class="timeline-date">Q2 2024</div>
+                    <p>Partnership announcements, DEX listings, and the creation of our signature "Cosmic Rectum" NFT collection featuring celestial gas clouds.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="timeline-title">Phase 3: Galactic Gas Expansion</h3>
+                    <div class="timeline-date">Q3 2024</div>
+                    <p>Mobile app development, staking rewards program, and the launch of our "Fart-to-Earn" gaming ecosystem.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="timeline-title">Phase 4: Universal Rectum Domination</h3>
+                    <div class="timeline-date">Q4 2024</div>
+                    <p>Major exchange listings, metaverse integration, and the establishment of ApeRectum as the premier crude astronomical meme brand.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Section -->
+        <section class="main-section" id="community" aria-labelledby="community-title">
+            <h2 class="section-title-with-animation" id="community-title">Connect with the ApeRectum Community</h2>
+            <div class="social-grid">
+                <a href="#" class="social-link" aria-label="Follow ApeRectum on Twitter">
+                    <span>Twitter</span>
+                </a>
+                <a href="#" class="social-link" aria-label="Join ApeRectum Telegram community">
+                    <span>Telegram</span>
+                </a>
+                <a href="#" class="social-link" aria-label="Watch ApeRectum on YouTube">
+                    <span>YouTube</span>
+                </a>
+                <a href="#" class="social-link" aria-label="Follow ApeRectum on TikTok">
+                    <span>TikTok</span>
+                </a>
+                <a href="#" class="social-link" aria-label="View ApeRectum on Dextools">
+                    <span>Dextools</span>
+                </a>
+                <a href="#" class="social-link" aria-label="Check ApeRectum on Dexscreener">
+                    <span>Dexscreener</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <p>&copy; 2024 ApeRectum. All rights reserved. May the cosmic gas be with you!</p>
+        <div class="copiable-text" onclick="copyToClipboard('CHiNsA2B6ZbmKnEmHPCbbX9aXJyoJzAtcLpHEDd6Qyq3')" 
+             title="Click to copy contract address" role="button" tabindex="0"
+             onkeypress="handleKeyPress(event, 'CHiNsA2B6ZbmKnEmHPCbbX9aXJyoJzAtcLpHEDd6Qyq3')">
+            Contract: CHiNsA2B6ZbmKnEmHPCbbX9aXJyoJzAtcLpHEDd6Qyq3
+        </div>
+    </footer>
+
+    <script>
+        // Cosmic Background Animation System
+        class CosmicBackground {
+            constructor() {
+                this.canvas = document.getElementById('cosmic-background');
+                this.ctx = this.canvas.getContext('2d');
+                this.particles = [];
+                this.gasCloud = [];
+                this.bearGhost = null;
+                
+                this.init();
+                this.createParticles();
+                this.createGasClouds();
+                this.animate();
+                
+                // Handle window resize
+                window.addEventListener('resize', () => this.handleResize());
+            }
+            
+            init() {
+                this.canvas.width = window.innerWidth;
+                this.canvas.height = window.innerHeight;
+            }
+            
+            handleResize() {
+                this.canvas.width = window.innerWidth;
+                this.canvas.height = window.innerHeight;
+            }
+            
+            createParticles() {
+                const particleCount = Math.min(window.innerWidth / 10, 150);
+                
+                for (let i = 0; i < particleCount; i++) {
+                    this.particles.push({
+                        x: Math.random() * this.canvas.width,
+                        y: Math.random() * this.canvas.height,
+                        size: Math.random() * 3 + 1,
+                        speedX: (Math.random() - 0.5) * 0.5,
+                        speedY: (Math.random() - 0.5) * 0.5,
+                        color: this.getRandomParticleColor(),
+                        alpha: Math.random() * 0.8 + 0.2,
+                        life: Math.random() * 100 + 50
+                    });
+                }
+            }
+            
+            createGasClouds() {
+                const cloudCount = 5;
+                
+                for (let i = 0; i < cloudCount; i++) {
+                    this.gasCloud.push({
+                        x: Math.random() * this.canvas.width,
+                        y: Math.random() * this.canvas.height,
+                        radius: Math.random() * 150 + 100,
+                        speedX: (Math.random() - 0.5) * 0.2,
+                        speedY: (Math.random() - 0.5) * 0.2,
+                        alpha: Math.random() * 0.3 + 0.1,
+                        color: `hsl(${Math.random() * 60 + 240}, 70%, 50%)` // Purple hues
+                    });
+                }
+            }
+            
+            getRandomParticleColor() {
+                const colors = ['#FF4500', '#AFFF00', '#FFFF00', '#FF8C00'];
+                return colors[Math.floor(Math.random() * colors.length)];
+            }
+            
+            updateParticles() {
+                this.particles.forEach(particle => {
+                    particle.x += particle.speedX;
+                    particle.y += particle.speedY;
+                    particle.life--;
+                    
+                    // Wrap around screen
+                    if (particle.x > this.canvas.width) particle.x = 0;
+                    if (particle.x < 0) particle.x = this.canvas.width;
+                    if (particle.y > this.canvas.height) particle.y = 0;
+                    if (particle.y < 0) particle.y = this.canvas.height;
+                    
+                    // Regenerate particle if life is over
+                    if (particle.life <= 0) {
+                        particle.x = Math.random() * this.canvas.width;
+                        particle.y = Math.random() * this.canvas.height;
+                        particle.life = Math.random() * 100 + 50;
+                        particle.color = this.getRandomParticleColor();
+                    }
+                });
+            }
+            
+            updateGasClouds() {
+                this.gasCloud.forEach(cloud => {
+                    cloud.x += cloud.speedX;
+                    cloud.y += cloud.speedY;
+                    
+                    // Wrap around screen
+                    if (cloud.x > this.canvas.width + cloud.radius) cloud.x = -cloud.radius;
+                    if (cloud.x < -cloud.radius) cloud.x = this.canvas.width + cloud.radius;
+                    if (cloud.y > this.canvas.height + cloud.radius) cloud.y = -cloud.radius;
+                    if (cloud.y < -cloud.radius) cloud.y = this.canvas.height + cloud.radius;
+                });
+            }
+            
+            drawParticles() {
+                this.particles.forEach(particle => {
+                    this.ctx.save();
+                    this.ctx.globalAlpha = particle.alpha;
+                    this.ctx.fillStyle = particle.color;
+                    this.ctx.shadowBlur = 20;
+                    this.ctx.shadowColor = particle.color;
+                    this.ctx.beginPath();
+                    this.ctx.arc(particle.x, particle
